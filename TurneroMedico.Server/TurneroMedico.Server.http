@@ -1,6 +1,19 @@
 @TurneroMedico.Server_HostAddress = http://localhost:5110
 
-GET {{TurneroMedico.Server_HostAddress}}/weatherforecast/
+# GET {{TurneroMedico.Server_HostAddress}}/api/Medicos
+GET {{TurneroMedico.Server_HostAddress}}/api/Medicos
+Accept: application/json
+
+###
+
+# GET {{TurneroMedico.Server_HostAddress}}/api/Especialidades
+GET {{TurneroMedico.Server_HostAddress}}/api/Especialidades
+Accept: application/json
+
+###
+
+# GET {{TurneroMedico.Server_HostAddress}}/api/ObrasSociales
+GET {{TurneroMedico.Server_HostAddress}}/api/ObrasSociales
 Accept: application/json
 
 ###
