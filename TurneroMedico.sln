@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "turneromedico.client", "turneromedico.client\turneromedico.client.esproj", "{FBF872AD-3DFA-7FCA-3A90-724BD38728AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurneroMedico.Server", "TurneroMedico.Server\TurneroMedico.Server.csproj", "{690D933F-94D8-A927-4959-000E69D0F32A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurneroMedico.AppHost", "TurneroMedico.AppHost\TurneroMedico.AppHost.csproj", "{7B6D4CFF-32F3-470E-AB48-F9130FEEB713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurneroMedico.ServiceDefaults", "TurneroMedico.ServiceDefaults\TurneroMedico.ServiceDefaults.csproj", "{588C1CD4-A158-E7FD-246F-97E5EBABC04D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBF872AD-3DFA-7FCA-3A90-724BD38728AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF872AD-3DFA-7FCA-3A90-724BD38728AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF872AD-3DFA-7FCA-3A90-724BD38728AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF872AD-3DFA-7FCA-3A90-724BD38728AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690D933F-94D8-A927-4959-000E69D0F32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690D933F-94D8-A927-4959-000E69D0F32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690D933F-94D8-A927-4959-000E69D0F32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690D933F-94D8-A927-4959-000E69D0F32A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B6D4CFF-32F3-470E-AB48-F9130FEEB713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B6D4CFF-32F3-470E-AB48-F9130FEEB713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B6D4CFF-32F3-470E-AB48-F9130FEEB713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B6D4CFF-32F3-470E-AB48-F9130FEEB713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{588C1CD4-A158-E7FD-246F-97E5EBABC04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588C1CD4-A158-E7FD-246F-97E5EBABC04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588C1CD4-A158-E7FD-246F-97E5EBABC04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588C1CD4-A158-E7FD-246F-97E5EBABC04D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {633FACCC-6889-4CE2-9CBE-000F78084BFC}
+	EndGlobalSection
+EndGlobal
