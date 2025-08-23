@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using TurneroMedico.Server.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
@@ -8,7 +11,20 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// DbContext InMemory para desarrollo
+builder.Services.AddDbContext<TurneroContext>(opt =>
+{
+    opt.UseInMemoryDatabase("TurneroDb");
+});
+
 var app = builder.Build();
+
+// Seed de datos iniciales
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TurneroContext>();
+    SeedData.Initialize(db);
+}
 
 app.MapDefaultEndpoints();
 
