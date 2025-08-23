@@ -1,58 +1,70 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import './App.css';
 
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface Especialidad {
+  id: number;
+  nombre: string;
+}
+
+interface Medico {
+  id: number;
+  nombre: string;
+  apellido: string;
+  especialidades?: Especialidad[];
 }
 
 function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+  const [medicos, setMedicos] = useState<Medico[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
+  useEffect(() => {
+    cargarMedicos();
+  }, []);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
-
-    return (
-        <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
-        </div>
-    );
-
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        if (response.ok) {
-            const data = await response.json();
-            setForecasts(data);
-        }
+  async function cargarMedicos() {
+    try {
+      const resp = await fetch('/api/Medicos');
+      if (!resp.ok) throw new Error(`Error ${resp.status}`);
+      const data: Medico[] = await resp.json();
+      setMedicos(data);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : 'Error al obtener médicos');
     }
+  }
+
+  return (
+    <div>
+      <h1>Turnero Médico</h1>
+      <p>Listado de médicos (desde la API).</p>
+      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      {medicos === null ? (
+        <p><em>Cargando...</em></p>
+      ) : medicos.length === 0 ? (
+        <p>No hay médicos cargados.</p>
+      ) : (
+        <table className="table" aria-label="Médicos">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Especialidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            {medicos.map(m => (
+              <tr key={m.id}>
+                <td>{m.id}</td>
+                <td>{m.nombre}</td>
+                <td>{m.apellido}</td>
+                <td>{(m.especialidades?.map(e => e.nombre) ?? []).join(', ')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
 }
 
 export default App;
